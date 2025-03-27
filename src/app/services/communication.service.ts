@@ -5,6 +5,8 @@ import { Hero } from '../types/Hero';
   providedIn: 'root'
 })
 export class CommunicationService {
+
+  //heroes variable contains the data that used in components to render in template
   heroes: Hero[] = [
     {
       title: 'SpiderMan',
@@ -70,11 +72,20 @@ export class CommunicationService {
 
   constructor() {}
 
-  getHeroes() {
+
+  getHeroes() { //getHeroes() returns the all heroes data
     return this.heroes;
   }
 
-  getHeroQuotes(){
+  getHeroNames(){ //getHeroNames() returns the all heroes names only
+    return this.heroes.map(hero => hero.title);
+  }
+
+  getHeroImages(){ //getHeroImages() returns the all heroes imageURL's
+    return this.heroes.map(hero => hero.imageURL);
+  }
+
+  getHeroQuotes(){ //getHeroQuotes() returns the all heroes quotes
     return this.heroes.map(hero => hero.quote);
   }
 }
